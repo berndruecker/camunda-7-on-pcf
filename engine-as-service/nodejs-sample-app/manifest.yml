@@ -1,0 +1,7 @@
+---
+applications:
+  - name: camunda-on-pcf-nodejs-example
+    #random-route: true
+    env:
+      CAMUNDA_URL: http://camunda-on-pcf-spring-boot-embedded-engine-example.cfapps.io/rest/
+      TARGET_PORT: 8080
