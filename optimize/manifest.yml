@@ -1,0 +1,6 @@
+---
+applications:
+  - name: camunda-on-pcf-optimize
+    path: target/camunda-on-pcf-optimize.jar
+    services:
+      - camunda-elastic
