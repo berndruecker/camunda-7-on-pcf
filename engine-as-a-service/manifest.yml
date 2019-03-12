@@ -1,7 +1,7 @@
 ---
 applications:
-  - name: camunda-on-pcf-spring-boot-embedded-engine-example
+  - name: camunda-on-pcf-engine-service
     random-route: true    
-    path: target/camunda-on-pcf-spring-boot-embedded-engine-example.jar
+    path: target/camunda-on-pcf-engine-service.jar
     services:
       - camunda-db
