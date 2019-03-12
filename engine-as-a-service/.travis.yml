@@ -1,0 +1,22 @@
+language: java
+sudo: true
+script: mvn clean package
+cache:
+  directories:
+    - $HOME/.m2
+jdk:
+  - oraclejdk8
+os:
+  - linux
+
+branches:
+  only:
+    - master
+
+deploy:
+  provider: cloudfoundry
+  api: https://api.run.pivotal.io
+  username: $CF_USERNAME
+  password: $CF_PASSWORD
+  organization: $CF_ORGANIZATION
+  space: $CF_SPACE
