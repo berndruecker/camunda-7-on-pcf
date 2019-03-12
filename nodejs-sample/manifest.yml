@@ -1,6 +1,6 @@
 ---
 applications:
-  - name: camunda-on-pcf-nodejs-example
+  - name: camunda-on-pcf-nodejs-sample
     #random-route: true
     env:
       CAMUNDA_URL: http://camunda-on-pcf-spring-boot-embedded-engine-example.cfapps.io/rest/

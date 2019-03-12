@@ -27,3 +27,4 @@ node_modules
 .project
 .settings
 /optimize-as-a-service/target
+target

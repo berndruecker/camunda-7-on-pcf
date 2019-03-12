@@ -1,7 +1,7 @@
 ---
 applications:
-  - name: camunda-on-pcf-engine-service
+  - name: camunda-on-pcf-engine-as-a-service
     random-route: true    
-    path: target/camunda-on-pcf-engine-service.jar
+    path: target/camunda-on-pcf-engine-as-a-service.jar
     services:
       - camunda-db
