@@ -26,3 +26,4 @@ node_modules
 .gitignore
 .project
 .settings
+/optimize-as-a-service/target

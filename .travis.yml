@@ -1,6 +1,8 @@
 language: java
 sudo: true
-script: mvn clean package
+script:
+  - cd engine-as-a-service
+  - mvn clean package
 cache:
   directories:
     - $HOME/.m2
