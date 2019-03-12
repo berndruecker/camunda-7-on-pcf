@@ -68,16 +68,19 @@ es:
     # several connection points in case one node fails.
     nodes:
     # the address/hostname under which the Elasticsearch node is available.
-    - host: 'thorin-us-east-1.searchly.com'
+    #- host: 'thorin-us-east-1.searchly.com'
+    - host: 'd104d2bf325044f183612f8c0c74bebd.europe-west1.gcp.cloud.es.io'
       # A port number used by Elasticsearch to accept HTTP connections.
-      httpPort: 80
+      httpPort: 9243
 
   # Elasticsearch security settings
   security:
     # the basic auth (x-pack) username
-    username: 'cloudfoundry'
+    username: 'elastic'
+    #'cloudfoundry'
     # the basic auth (x-pack) password
-    password: 'dad0e5bc547265dfe3afa454c16621dd'
+    #password: 'dad0e5bc547265dfe3afa454c16621dd'
+    password: 'Aps0k8j9vnvipKdVxYUIhjR1'
     # SSL/HTTPS secured connection settings
     ssl:
       # path to a PEM encoded file containing the certificate (or certificate chain)
@@ -88,7 +91,7 @@ es:
       # you do not need to set the certificate_authorities.
       certificate_authorities: []
       # used to enable or disable TLS/SSL for the HTTP connection
-      enabled: false
+      enabled: true
 
   settings:
     index:
