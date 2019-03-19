@@ -1,10 +1,12 @@
-# Use Camunda as library within your Spring Boot application
+# Embed Camunda into your Spring Boot application
 
 You can use Camunda as a library within your own Spring Boot application by leveraging the [Camunda Spring Boot Starter](https://docs.camunda.org/manual/latest/user-guide/spring-boot-integration/).
 
+This is one of multiple [possible approaches](../).
+
 ![](../docs/embedded-spring-boot-architecture.png)
 
-## Step-by-step
+# Step-by-step how-to
 
 1. Add a [normal Spring REST controller](https://github.com/berndruecker/camunda-on-pcf/blob/master/spring-boot-embedded-engine-sample/src/main/java/com/camunda/demo/springboot/SysoutRestController.java#L15) to provide your custom REST API to say hello.
 
@@ -64,12 +66,12 @@ You can also use the **[Camunda REST API](https://docs.camunda.org/manual/latest
 curl http://camunda-on-pcf-spring-boot-embedded-engine-sample.cfapps.io/rest/history/process-instance?completed=true
 ```
 
-## Screencast
+# Screencast
 
 This video walks you through the whole procedure:
 
 ADD YOUTUBE VIDEO HERE
 
-## Further reading
+# Further reading
 
 A more sophisticated example using AMQP can be found here: [https://github.com/berndruecker/camunda-spring-boot-amqp-microservice-cloud-example](https://github.com/berndruecker/camunda-spring-boot-amqp-microservice-cloud-example).

@@ -1,10 +1,16 @@
 # Use Camunda Server in your Node.JS application
 
-In this scenario you run Camunda as a service. See [Engine as a Service](../engine-as-a-service/) for how-to set this up on PCF. In this tutorial I assume that the service is available via REST on https://camunda-on-pcf-engine-as-a-service.cfapps.io.
+In this scenario you run Camunda as a service.
+
+**Set-up the Camunda [Engine as a Service](../engine-as-a-service/) on PCF first.**
+
+ In this tutorial I assume that Camunda is available via REST on https://camunda-on-pcf-engine-as-a-service.cfapps.io.
 
 ![](../docs/node-js-architecture.png)
 
-1. Leverage the [REST API](https://docs.camunda.org/manual/latest/reference/rest/) as well as the language client for [External Tasks]https://github.com/camunda/camunda-external-task-client-js):
+# Step-by-step how-to
+
+1. We will leverage the [REST API](https://docs.camunda.org/manual/latest/reference/rest/) as well as the language client for [External Tasks]https://github.com/camunda/camunda-external-task-client-js):
 
 ```
 var {Client} = require("camunda-external-task-client-js");  
@@ -42,7 +48,7 @@ curl --request POST --data '{"text":"some text for hello world"}' \\
 https://camunda-on-pcf-nodejs-sample.cfapps.io/hello
 ```
 
-## Screencast
+# Screencast
 
 This video walks you through the procedure:
 ADD YOUTUBE VIDEO HERE

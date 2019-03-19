@@ -1,24 +1,53 @@
 # How to run Camunda on Pivotal Cloud Foundry (PCF)
 
-In the examples in this repo I show how to run a workflow on Camunda in a PCF environment. The workflow is intensionally super simple to concentrate on the architecture and deployment aspects.
+In the examples in this repo I show how to run 
+
+* a simple workflow in BPMN
+* on Camunda 
+* in a PCF environment. 
+
+The workflow is intensionally super simple to concentrate on the architecture and deployment aspects.
 
 ![](docs/hello-world.png)
 
-I will use Pivotal Web Services as managed PCF, but all descriptions should also be applicable if you run PCF on premise too. 
+For the demos I use Pivotal Web Services as managed PCF, but all descriptions also apply if you run Cloud Foundry on premise. 
 
-# Embedded engine vs. engine as a service
 
-There are many way of running Camunda, I wrote about this in [Architecture options to run a workflow engine](https://blog.bernd-ruecker.com/architecture-options-to-run-a-workflow-engine-6c2419902d91). For today I want to concentrate on the **two default architectures** we recommend:
+
+# Approaches
+
+There are many ways of running Camunda (I wrote about this in [Architecture options to run a workflow engine](https://blog.bernd-ruecker.com/architecture-options-to-run-a-workflow-engine-6c2419902d91)). For today I concentrate on the **two default architectures** we recommend:
 
 ![](docs/approaches.png)
 
-1.  **Embed Camunda into your Spring Boot application**. Note that this setup is only possible if you develop in Java. Use it if Spring Boot is what you are doing anyway —as this is a very easy setup.
+## 1. Run Camunda as service
 
-2.  Run **Camunda as service** (own deployment on PCF) and connect to it via REST and [External Tasks](https://docs.camunda.org/manual/latest/user-guide/process-engine/external-tasks/). Use this approach in all other cases — especially if you are not using Java and Spring Boot. 
+Camunda will be an own deployment on PCF, so you can connect to it via REST and [External Tasks](https://docs.camunda.org/manual/latest/user-guide/process-engine/external-tasks/). 
 
-Note that Camunda does not yet provide a managed service, but we are working on it. This might be a good alternative to the second option if you run in the cloud. If you run PCF on premise you could also think about creating a [PCF tile](https://docs.pivotal.io/tiledev/1-12/tile-structure.html) for Camunda if you use it multiple times in your universe. I plan to describe this in a future blog post, contact me if this is what you plan to do.
+Use this approach in case you are not developing in Java and Spring Boot. 
 
-# Deploying on PCF: build packs vs. Docker
+**--> Read the step-by-step how-to run the [Approach 2:  Engine as a service on PCF](engine-as-a-service/)**
+
+After running the engine look at **sample applications** using it:
+
+* [Node.JS sample application using Camunda as a Service on PCF](nodejs-sample/)
+
+If you run PCF on premise you could also think about creating a [PCF tile](https://docs.pivotal.io/tiledev/1-12/tile-structure.html) for Camunda if you use it multiple times in your universe. I plan to describe this in a future blog post, contact me if this is what you plan to do.
+
+
+## 2. Embed Camunda into your Spring Boot application
+
+Note that this setup is only possible if you develop in Java. Use it if Spring Boot is what you are doing anyway. It is a very easy setup and smoothly integrated into common best practices.
+
+**--> Read the step-by-step how-to for [Approach 1: Spring Boot app with embedded engine on PCF](spring-boot-embedded-engine-sample/)**
+
+
+## 3. Managed Camunda
+
+Note that Camunda does **not yet provide a managed service**, but we are working on it. This will be a good alternative to run the engine as a service yourself. 
+
+
+# Deploying on PCF: Why not Docker? 
 
 In order to run applications on PCF you typically leverage so called build packs. As the Camunda engine is written in Java you leverage the [Java build pack of PCF](https://github.com/cloudfoundry/java-buildpack) (which is available by default).
 
@@ -32,8 +61,3 @@ In order to run applications on PCF you typically leverage so called build packs
 
 In this example post I will only use the recommended way of the Java build pack.
 
-# Approaches
-
-* [Approach 1: Spring Boot app with embedded engine on PCF](spring-boot-embedded-engine-sample/)
-* [Approach 2:  Engine as a service on PCF](engine-as-a-service/) + example application:
-  * [Node.JS sample application using Camunda as a Service on PCF](nodejs-sample/)

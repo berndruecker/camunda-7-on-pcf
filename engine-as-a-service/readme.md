@@ -1,12 +1,12 @@
 # Run Camunda as a service on PCF
 
-In this scenario you run Camunda as a service and allow to connect to it via REST API: 
+In order to leverage Camunda as a service you need to run it as own deployment in PCF and connect to it via REST API:
 
-![](../docs/todo.png)
+![](../docs/engine-as-a-service-architecture.png)
 
-The recommended way to run a Camunda engine on PCF is to create and deploy a simple Spring Boot application that just provides Camunda. This project is a ready-to-use example.
+The recommended way to run Camunda on PCF is to create and deploy a simple Spring Boot application that just provides Camunda. This folder contains a ready-to-use example.
 
-You can deploy it to PCF by 
+You have mutliple alternatives to deploy to PCF 
 
 * Local build and push
 * CI/CD
@@ -16,7 +16,7 @@ You can deploy it to PCF by
 
 If you do not fancy a local build, e.g. because you are not a Java shop, you can leverage your CI/CD to build and deploy.
 
-As an example [I use Travis-CI to deploy the Camunda service on PCF by this configuration](https://github.com/berndruecker/camunda-on-pcf/blob/master/.travis.yml). Make sure you set environment variables for your PCF credentials:
+As example [I use Travis-CI to deploy the Camunda service on PCF using this configuration](https://github.com/berndruecker/camunda-on-pcf/blob/master/.travis.yml). Make sure you set environment variables for your PCF credentials:
 
 ![](../docs/travis-ci-config.png)
 
@@ -45,7 +45,13 @@ No you can use the **[Camunda REST API](https://docs.camunda.org/manual/latest/r
 curl http://camunda-on-pcf-engine-as-a-service.cfapps.io/rest/history/process-definition
 ```
 
-#### Screencast
+## Run example applications
+
+Now you can run one of the sample applications of this tutorial:
+
+* [Node.JS Sample](../nodejs-sample/)
+
+# Screencast
 
 This video walks you through the whole procedure:
 
