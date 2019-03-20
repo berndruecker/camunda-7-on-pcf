@@ -4,7 +4,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.UUID;
 
-import org.camunda.bpm.engine.ProcessEngine;
 import org.camunda.bpm.engine.runtime.ProcessInstance;
 import org.camunda.bpm.engine.test.Deployment;
 import org.junit.Test;
@@ -20,9 +19,7 @@ import org.springframework.test.context.junit4.SpringRunner;
     classes = Application.class, //
     properties = { //
         "camunda.bpm.job-execution.enabled=false", //
-        "camunda.bpm.auto-deployment-enabled=false", //
-        "restProxyHost=api.example.org", //
-        "restProxyPort=80" })
+        "camunda.bpm.auto-deployment-enabled=false"})
 @Deployment(resources = { "sysout.bpmn" })
 @ActiveProfiles({ "test" })
 public class SysoutProcessTest {

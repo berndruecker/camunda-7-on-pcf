@@ -49,28 +49,27 @@ cf login
 ```
 mvn clean install && cf push -f target/*.jar
 ```
-*   Now you can access your application by either triggering your REST endpoint or open up the Camunda web applications. PCF as default creates an URL that matches exactly your application name, in my example that is [https://camunda-on-pcf-spring-boot-embedded-engine-sample.cfapps.io](https://camunda-on-pcf-spring-boot-embedded-engine-sample.cfapps.io/):
+*   Now you can access your application by either triggering your REST endpoint or open up the Camunda web applications. PCF as default creates an URL that matches exactly your application name, in my example that is [https://camunda-pcf-spring-boot-embedded-engine-sample.cfapps.io](https://camunda-pcf-spring-boot-embedded-engine-sample.cfapps.io/):
 
 ![](../docs/embedded-spring-boot-cockpit.png)
 
 No you can **trigger your own REST API** with a client of your choice (e.g. Postman, ARC or CURL):
 
 ```
-curl --request POST -F 'text=some text shown later' \\  
-http://camunda-on-pcf-spring-boot-embedded-engine-sample.cfapps.io/hello
+curl --request POST -F 'text=some text shown later' http://camunda-pcf-spring-boot-embedded-engine-sample.cfapps.io/hello
 ```
 
 You can also use the **[Camunda REST API](https://docs.camunda.org/manual/latest/reference/rest/history/process-instance/get-process-instance-query/)** to access the engine, e.g. to query completed process instances:
 
 ```
-curl http://camunda-on-pcf-spring-boot-embedded-engine-sample.cfapps.io/rest/history/process-instance?completed=true
+curl http://camunda-pcf-spring-boot-embedded-engine-sample.cfapps.io/rest/history/process-instance?completed=true
 ```
 
 # Screencast
 
 This video walks you through the whole procedure:
 
-ADD YOUTUBE VIDEO HERE
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=va2uf-RRhPs" target="_blank"><img src="http://img.youtube.com/vi/va2uf-RRhPs/0.jpg" alt="Screencast" width="240" height="180" border="10" /></a>
 
 # Further reading
 
