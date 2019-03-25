@@ -9,7 +9,7 @@
       <bpmn:incoming>SequenceFlow_15xy8ij</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="SequenceFlow_15xy8ij" sourceRef="Task_10lhlbu" targetRef="EndEvent_1a3v310" />
-    <bpmn:serviceTask id="Task_10lhlbu" name="Sysout Hello World" camunda:delegateExpression="#{sysoutAdapter}">
+    <bpmn:serviceTask id="Task_10lhlbu" name="Sysout Hello World" camunda:asyncBefore="true" camunda:delegateExpression="#{sysoutAdapter}">
       <bpmn:incoming>SequenceFlow_1mzusrg</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_15xy8ij</bpmn:outgoing>
     </bpmn:serviceTask>
