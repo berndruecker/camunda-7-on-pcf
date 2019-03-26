@@ -2,7 +2,7 @@
 
 You can use Camunda as a library within your own Spring Boot application by leveraging the [Camunda Spring Boot Starter](https://docs.camunda.org/manual/latest/user-guide/spring-boot-integration/).
 
-This is one of multiple [possible approaches](../).
+This is one of multiple [possible approaches](../../../).
 
 ![](../docs/embedded-spring-boot-architecture.png)
 
