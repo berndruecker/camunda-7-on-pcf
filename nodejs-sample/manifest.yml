@@ -1,7 +1,11 @@
 ---
 applications:
   - name: camunda-on-pcf-nodejs-sample
-    #random-route: true
     env:
       CAMUNDA_URL: http://camunda-on-pcf-spring-boot-embedded-engine-example.cfapps.io/rest/
       TARGET_PORT: 8080
+     
+# We could also use User-Provided Service Instances (cf cups), see https://docs.cloudfoundry.org/devguide/services/user-provided.html, then we could refernce the service here and read the URL from the service information
+#    services:
+#      - camunda
+      

@@ -1,8 +1,8 @@
-var request = require('request');
-var {Client} = require('camunda-external-task-client-js');
-var fs = require('fs');
-var path = require('path');
-var express = require('express');
+const request = require('request');
+const {Client} = require('camunda-external-task-client-js');
+const fs = require('fs');
+const path = require('path');
+const express = require('express');
 
 
 var camundaEngineUrl = 'http://localhost:8080/rest/'; // default if not overwritten by ENV variable
@@ -10,6 +10,11 @@ var targetPort = '8090'; //default if not overwritten by ENV
 if (process.env.CAMUNDA_URL) {
   camundaEngineUrl = process.env.CAMUNDA_URL;
 }
+// We could also use User-Provided Service Instances (cf cups), see https://docs.cloudfoundry.org/devguide/services/user-provided.html and https://docs.run.pivotal.io/buildpacks/node/node-service-bindings.html
+// var cfenv = require("cfenv");
+// var vcap_services = JSON.parse(process.env.VCAP_SERVICES);
+// var uri = vcap_services.camunda[0].credendtials.uri;
+
 if (process.env.TARGET_PORT) {
   targetPort = process.env.TARGET_PORT;
 }
@@ -80,7 +85,7 @@ function startProcess(text) {
   });
 }
 
-// Startup: Auto-Deploy
+// Auto-Deploy on startup
 deployProcess();
 
 
