@@ -1,4 +1,4 @@
-package com.camunda.demo.springboot.conf;
+package com.camunda.demo.springboot;
 
 import javax.sql.DataSource;
 

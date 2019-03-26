@@ -45,6 +45,18 @@ No you can use the **[Camunda REST API](https://docs.camunda.org/manual/latest/r
 curl http://camunda-on-pcf-engine-as-a-service.cfapps.io/rest/history/process-definition
 ```
 
+
+## Camunda as User-Provided Service Instances
+
+On PCF you have the option to promote certain deployments as spo called [User-Provided Service Instances](https://docs.cloudfoundry.org/devguide/services/user-provided.html). This allows to define certain metadata attached to your service, especially the endpoint (Host, URL) and credentials.
+
+```
+cf cups ...
+```
+
+ This allows that deployments, which use Camunda, can simply read this data from the service description as described e.g. in [Service Bindings in Node.JS](https://docs.run.pivotal.io/buildpacks/node/node-service-bindings.html).
+
+
 ## Run example applications
 
 Now you can run one of the sample applications of this tutorial:
