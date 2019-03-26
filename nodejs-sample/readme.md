@@ -16,11 +16,11 @@ In this scenario you run Camunda as a service.
 var {Client} = require("camunda-external-task-client-js");  
 ```
 
-2. [Deploy the workflow model during application startup](https://github.com/berndruecker/camunda-on-pcf/blob/master/nodejs-sample/index.js#Lxx) (you could also do that via CI/CD, but the lifecycle management is easier like this and the Camunda engine detects duplicates and don’t deploy them again).
+2. [Deploy the workflow model during application startup](https://github.com/berndruecker/camunda-on-pcf/blob/master/nodejs-sample/index.js#L34) (you could also do that via CI/CD, but the lifecycle management is easier like this and the Camunda engine detects duplicates and don’t deploy them again).
 
-3. [Create a webserver to serve your REST API and start process instances](https://github.com/berndruecker/camunda-on-pcf/blob/master/nodejs-sample/index.js#Lxx).
+3. [Create a webserver to serve your REST API and start process instances](https://github.com/berndruecker/camunda-on-pcf/blob/master/nodejs-sample/index.js#L66).
 
-4. [Subscribe a worker to the external task](https://github.com/berndruecker/camunda-on-pcf/blob/master/nodejs-sample/index.js#Lxx) to do the sysout when a process instance arrives there:
+4. [Subscribe a worker to the external task](https://github.com/berndruecker/camunda-on-pcf/blob/master/nodejs-sample/index.js#L27) to do the sysout when a process instance arrives there:
 
 ```
 client.subscribe("sysout", async function({ task, taskService }) {  
