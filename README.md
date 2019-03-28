@@ -25,7 +25,7 @@ There are many ways of running Camunda (I wrote about this in [Architecture opti
 ## Run Camunda as a service
 
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=e0rdC8ElxLk" target="_blank"><img src="http://img.youtube.com/vi/e0rdC8ElxLk/0.jpg" alt="Screencast" width="480" border="10" /></a>
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=e0rdC8ElxLk" target="_blank"><img src="http://img.youtube.com/vi/e0rdC8ElxLk/0.jpg" alt="Screencast" width="240" border="10" /></a>
 
 Camunda will be an own deployment on PCF, so you can connect to it via REST and [External Tasks](https://docs.camunda.org/manual/latest/user-guide/process-engine/external-tasks/). 
 
@@ -41,7 +41,7 @@ If you run PCF on premise you could also think about creating a [PCF tile](https
 
 ## Embed Camunda into your Spring Boot application
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=va2uf-RRhPs" target="_blank"><img src="http://img.youtube.com/vi/va2uf-RRhPs/0.jpg" alt="Screencast" width="120" border="10" /></a>
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=va2uf-RRhPs" target="_blank"><img src="http://img.youtube.com/vi/va2uf-RRhPs/0.jpg" alt="Screencast" width="240" border="10" /></a>
 
 This setup is only possible if you develop in Java. Use it if Spring Boot is what you are doing anyway. It is a very easy setup and smoothly integrated into common best practices.
 
