@@ -20,14 +20,14 @@ There are many ways of running Camunda (I wrote about this in [Architecture opti
 
 ![](docs/approaches.png)
 
-## Run Camunda as service
+## Run Camunda as a service
 
 Camunda will be an own deployment on PCF, so you can connect to it via REST and [External Tasks](https://docs.camunda.org/manual/latest/user-guide/process-engine/external-tasks/). 
 
 Use this approach in case you are not developing in Java and Spring Boot. 
 
-1. Run the **[Engine as a service on PCF](engine-as-a-service/)**
-2. Run the **[Node.JS sample application using Camunda as a Service on PCF](nodejs-sample/)**
+1. Run **[Camunda as a service on PCF](engine-as-a-service/)**
+2. Run the **[Node.JS sample application](nodejs-sample/)** using that Camunda Service
 
 Note that Camunda does **not yet provide a managed service**, but we are working on it. This will be a good alternative to run the engine as a service yourself. 
 
