@@ -6,7 +6,13 @@ This is one of multiple [possible approaches](../../../).
 
 ![](../docs/embedded-spring-boot-architecture.png)
 
-# Step-by-step how-to
+# Screencast
+
+This video walks you through the whole procedure:
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=va2uf-RRhPs" target="_blank"><img src="http://img.youtube.com/vi/va2uf-RRhPs/0.jpg" alt="Screencast" width="480" border="10" /></a>
+
+# Step-by-step
 
 1. Add a [normal Spring REST controller](https://github.com/berndruecker/camunda-on-pcf/blob/master/spring-boot-embedded-engine-sample/src/main/java/com/camunda/demo/springboot/SysoutRestController.java#L15) to provide your custom REST API to say hello.
 
@@ -64,12 +70,6 @@ You can also use the **[Camunda REST API](https://docs.camunda.org/manual/latest
 ```
 curl http://camunda-pcf-spring-boot-embedded-engine-sample.cfapps.io/rest/history/process-instance?completed=true
 ```
-
-# Screencast
-
-This video walks you through the whole procedure:
-
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=va2uf-RRhPs" target="_blank"><img src="http://img.youtube.com/vi/va2uf-RRhPs/0.jpg" alt="Screencast" width="240" height="180" border="10" /></a>
 
 # Further reading
 

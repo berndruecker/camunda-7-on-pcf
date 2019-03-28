@@ -8,7 +8,13 @@ In this scenario you run Camunda as a service.
 
 ![](../docs/node-js-architecture.png)
 
-# Step-by-step how-to
+# Screencast
+
+This video walks you through the whole procedure:
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=e0rdC8ElxLk" target="_blank"><img src="http://img.youtube.com/vi/e0rdC8ElxLk/0.jpg" alt="Screencast" width="480" border="10" /></a>
+
+# Step-by-step
 
 1. We will leverage the [REST API](https://docs.camunda.org/manual/latest/reference/rest/) as well as the language client for [External Tasks]https://github.com/camunda/camunda-external-task-client-js):
 
@@ -48,7 +54,3 @@ curl --request POST -H "Content-Type: application/json" --data '{"someText":"som
 https://camunda-on-pcf-nodejs-sample.cfapps.io/hello
 ```
 
-# Screencast
-
-This video walks you through the procedure:
-ADD YOUTUBE VIDEO HERE
