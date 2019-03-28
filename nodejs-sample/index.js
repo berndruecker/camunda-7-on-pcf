@@ -25,7 +25,7 @@ console.log('Use Camunda Server at ' + camundaEngineUrl);
 var client = new Client( { baseUrl: camundaEngineUrl, interval: 50, asyncResponseTimeout: 10000});
 // External Task subscription to do business logic
 client.subscribe('sysout', async function({ task, taskService }) {
-  console.log('Hello World: %s', task.variables.get('text'));
+  console.log('Hello World: %s', task.variables.get('someText'));
   await taskService.complete(task);
 });
 
@@ -33,8 +33,8 @@ client.subscribe('sysout', async function({ task, taskService }) {
 // Deployment of Workflow Definition during startup (duplicates are NOT deployed)
 function deployProcess() {
     filename = 'sysout.bpmn';
-    path = path.join(__dirname, filename);
-    console.log(path);
+    filepath = path.join(__dirname, filename);
+    console.log(filepath);
 
     request(
         {
@@ -48,7 +48,7 @@ function deployProcess() {
               'enable-duplicate-filtering': 'true',
               'deploy-changed-only': 'true',
               'scripttest.bpmn': {
-                'value':  fs.createReadStream(path),
+                'value':  fs.createReadStream(filepath),
                 'options': {'filename': filename}
               }
           }
@@ -63,15 +63,15 @@ function deployProcess() {
 }
 
 // Start workflow instance: https://docs.camunda.org/manual/latest/reference/rest/process-definition/post-start-process-instance/
-function startProcess(text) {
+function startProcess(someText) {
   request(
     {
       method: "POST", // see https://docs.camunda.org/manual/latest/reference/rest/deployment/post-deployment/
       uri: camundaEngineUrl + 'engine/default/process-definition/key/'+'sysout'+'/start',
       json: {
         'variables': {
-          'text' : {
-              'value' : text,
+          'someText' : {
+              'value' : someText,
               'type': 'String'
           },
         }      
@@ -94,8 +94,8 @@ var app = express();
 app.use(express.json());
 
 app.post('/hello', function (req, res) {
-  startProcess(req.body.text);  
-  res.send('Hello initiated');
+  startProcess(req.body.someText);  
+  res.send('Hello initiated with text: ' + req.body.someText);
 })
 
 var server = app.listen(targetPort, function () {

@@ -44,7 +44,7 @@ cf push
 Now you can send REST requests:
 
 ```
-curl --request POST --data '{"text":"some text for hello world"}' \\  
+curl --request POST -H "Content-Type: application/json" --data '{"someText":"some text for hello world"}'
 https://camunda-on-pcf-nodejs-sample.cfapps.io/hello
 ```
 
