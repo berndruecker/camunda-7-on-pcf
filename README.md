@@ -20,31 +20,26 @@ There are many ways of running Camunda (I wrote about this in [Architecture opti
 
 ![](docs/approaches.png)
 
-## 1. Run Camunda as service
+## Run Camunda as service
 
 Camunda will be an own deployment on PCF, so you can connect to it via REST and [External Tasks](https://docs.camunda.org/manual/latest/user-guide/process-engine/external-tasks/). 
 
 Use this approach in case you are not developing in Java and Spring Boot. 
 
-**--> Read the step-by-step how-to run the [Approach 2:  Engine as a service on PCF](engine-as-a-service/)**
-
-After running the engine look at **sample applications** using it:
-
-* [Node.JS sample application using Camunda as a Service on PCF](nodejs-sample/)
-
-If you run PCF on premise you could also think about creating a [PCF tile](https://docs.pivotal.io/tiledev/1-12/tile-structure.html) for Camunda if you use it multiple times in your universe. I plan to describe this in a future blog post, contact me if this is what you plan to do.
-
-
-## 2. Embed Camunda into your Spring Boot application
-
-Note that this setup is only possible if you develop in Java. Use it if Spring Boot is what you are doing anyway. It is a very easy setup and smoothly integrated into common best practices.
-
-**--> Read the step-by-step how-to for [Approach 1: Spring Boot app with embedded engine on PCF](spring-boot-embedded-engine-sample/)**
-
-
-## 3. Managed Camunda
+1. Run the **[Engine as a service on PCF](engine-as-a-service/)**
+2. Run the **[Node.JS sample application using Camunda as a Service on PCF](nodejs-sample/)**
 
 Note that Camunda does **not yet provide a managed service**, but we are working on it. This will be a good alternative to run the engine as a service yourself. 
+
+If you run PCF on premise you could also think about creating a [PCF tile](https://docs.pivotal.io/tiledev/1-12/tile-structure.html) for Camunda if you use it multiple times in your universe.
+
+
+## Embed Camunda into your Spring Boot application
+
+This setup is only possible if you develop in Java. Use it if Spring Boot is what you are doing anyway. It is a very easy setup and smoothly integrated into common best practices.
+
+1. Run the **[Spring Boot app with an embedded engine on PCF](spring-boot-embedded-engine-sample/)**
+
 
 
 # Deploying on PCF: Why not Docker? 
