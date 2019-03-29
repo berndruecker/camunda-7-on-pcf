@@ -4,3 +4,17 @@ applications:
     path: target/camunda-on-pcf-optimize-as-a-service.jar
 #    services:
 #      - camunda-elastic
+    env:
+      HTTP_PORT: 8080
+      HTTPS_PORT: 8081
+      CAMUNDA_REST_ENDPOINT: http://camunda-on-pcf-engine-as-a-service.cfapps.io/rest
+      CAMUNDA_REST_AUTH_ENABLED: false
+      CAMUNDA_REST_USERNAME:
+      CAMUNDA_REST_PASSWORD:
+      CAMUNDA_WEBAPP_ENDPOINT: http://camunda-on-pcf-engine-as-a-service.cfapps.io/
+      ELASTIC_CLUSTERNAME: elasticsearch
+      ELASTIC_HOST: d104d2bf325044f183612f8c0c74bebd.europe-west1.gcp.cloud.es.io
+      ELASTIC_PORT: 9243
+      ELASTIC_SSL_ENABLED: true
+      ELASTIC_USERNAME: elastic
+      ELASTIC_PASSWORD: Aps0k8j9vnvipKdVxYUIhjR1

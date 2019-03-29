@@ -14,12 +14,12 @@ container:
   # which to listen.
   host: 0.0.0.0
   ports:
-    # A port number that will be used by the embedded jetty server to process
-    # HTTP connections.
-    http: 8080
-    # A port number that will be used by the embedded jetty server to process
+    # A port number that will be used by Optimize to process HTTP connections.
+    # If set to null, ~ or left empty, http connections won't be accepted.
+    http: ${HTTP_PORT}
+    # A port number that will be used by Optimize to process
     # secure HTTPS connections.
-    https: 8081
+    https: ${HTTPS_PORT}
 
 # Configuration for engines used to import data. Please note that you have to have at
 # least one engine configured at all times.
@@ -30,7 +30,7 @@ engines:
     # The name of the engine that will be used to import data.
     name: default
     # A base URL that will be used for connections to the Camunda Engine REST API.
-    rest: 'http://camunda-on-pcf-spring-boot-embedded-engine-example.cfapps.io/rest'
+    rest: ${CAMUNDA_REST_ENDPOINT}
     # Determines whether this instance of Optimize should import definition & historical data from this engine.
     importEnabled: true
     authentication:
@@ -38,22 +38,22 @@ engines:
       # authentication, please be aware that you also need to adjust the values
       # of the user and password.
       # Also note, when enabled, it is required that the user has
-      # * READ_HISTORY permission on the Process/Decision Definition resources
-      # * READ permission on the Authorizations and Users resources
+      # * READ & READ_HISTORY permission on the Process and Decision Definition resources
+      # * READ permission on the Authorization, Group and User resources
       # to enable users to log in and Optimize to import the engine data.
-      enabled: false
+      enabled: ${CAMUNDA_REST_AUTH_ENABLED}
       #When basic authentication is enabled, this password is used to
       #authenticate against the engine.
-      password: ''
+      password: ${CAMUNDA_REST_PASSWORD}
       #When basic authentication is enabled, this user is used to authenticate
       #against the engine.
-      user: ''
+      user: ${CAMUNDA_REST_USERNAME}
     # The webapps configuration allows Optimize to directly link
     # to the other Camunda Web Applications, e.g. to jump from
     # Optimize directly to a dedicated process instance in Cockpit
     webapps:
       # Defines the endpoint where to find the camunda webapps
-      endpoint: 'http://camunda-on-pcf-spring-boot-embedded-engine-example.cfapps.io/'
+      endpoint: ${CAMUNDA_WEBAPP_ENDPOINT}
       # Enables/disables linking to other Camunda Web Applications
       enabled: true
 
@@ -61,26 +61,31 @@ engines:
 # a connection to it.
 es:
   connection:
-    # The name of the Elasticsearch cluster Optimize should connect with.
-    clusterName: elasticsearch
     # a list of Elasticsearch nodes Optimize can connect to. If you  have built
     # an Elasticsearch cluster with several nodes it is recommended to define
     # several connection points in case one node fails.
     nodes:
     # the address/hostname under which the Elasticsearch node is available.
-    #- host: 'thorin-us-east-1.searchly.com'
-    - host: 'd104d2bf325044f183612f8c0c74bebd.europe-west1.gcp.cloud.es.io'
+    - host: ${ELASTIC_HOST}
       # A port number used by Elasticsearch to accept HTTP connections.
-      httpPort: 9243
+      httpPort: ${ELASTIC_PORT}
+    # HTTP forward proxy configuration
+    proxy:
+      # whether an HTTP proxy should be used for requests to elasticsearch
+      enabled: false
+      # the host of the proxy to use
+      host: null
+      # the port of the proxy to use
+      port: null
+      # whether this proxy is using a secured connection
+      sslEnabled: false
 
   # Elasticsearch security settings
   security:
     # the basic auth (x-pack) username
-    username: 'elastic'
-    #'cloudfoundry'
+    username: ${ELASTIC_USERNAME}
     # the basic auth (x-pack) password
-    #password: 'dad0e5bc547265dfe3afa454c16621dd'
-    password: 'Aps0k8j9vnvipKdVxYUIhjR1'
+    password: ${ELASTIC_PASSWORD}
     # SSL/HTTPS secured connection settings
     ssl:
       # path to a PEM encoded file containing the certificate (or certificate chain)
@@ -91,7 +96,7 @@ es:
       # you do not need to set the certificate_authorities.
       certificate_authorities: []
       # used to enable or disable TLS/SSL for the HTTP connection
-      enabled: true
+      enabled: ${ELASTIC_SSL_ENABLED}
 
   settings:
     index:
