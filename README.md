@@ -49,6 +49,18 @@ This setup is only possible if you develop in Java. Use it if Spring Boot is wha
 
 
 
+# Run Camunda Optimize on PCF
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=w_EOtS9-pWU" target="_blank"><img src="http://img.youtube.com/vi/w_EOtS9-pWU/0.jpg" alt="Screencast" width="240" border="10" /></a>
+
+[Camunda Optimize](https://camunda.com/products/optimize/) is a business analysis tool that can make sense of data in Camunda engines. Please not that this is not available within the community edition and needs an [enterprise subscription](https://camunda.com/enterprise/). Nevertheless I wanted to include it here, as customers ask about running it on PCF.
+
+![](../docs/optimize.png)
+
+1. Run a sample workflow using one of the approaches above
+2. Follow the how-to **[Optimize as a Service](optimize-as-a-service/)** to run optimize and analyse the workflow you just deployed.
+
+
 # Deploying on PCF: Why not Docker? 
 
 In order to run applications on PCF you typically leverage so called build packs. As the Camunda engine is written in Java you leverage the [Java build pack of PCF](https://github.com/cloudfoundry/java-buildpack) (which is available by default).
