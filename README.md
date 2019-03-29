@@ -55,7 +55,7 @@ This setup is only possible if you develop in Java. Use it if Spring Boot is wha
 
 [Camunda Optimize](https://camunda.com/products/optimize/) is a business analysis tool that can make sense of data in Camunda engines. Please not that this is not available within the community edition and needs an [enterprise subscription](https://camunda.com/enterprise/). Nevertheless I wanted to include it here, as customers ask about running it on PCF.
 
-![](../docs/optimize.png)
+![](docs/optimize.png)
 
 1. Run a sample workflow using one of the approaches above
 2. Follow the how-to **[Optimize as a Service](optimize-as-a-service/)** to run optimize and analyse the workflow you just deployed.

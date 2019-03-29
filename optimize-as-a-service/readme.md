@@ -14,13 +14,11 @@ In order to properly configure Optimize this repo provides a small overlay proje
 
 # Step-by-step
 
-1. Build this project locally. Make sure you have your [Camunda Enterprise Edition login configured](https://docs.camunda.org/get-started/apache-maven/#enterprise-edition-1). 
+1. Build this project locally. Make sure you have your [Camunda Enterprise Edition login configured](https://docs.camunda.org/get-started/apache-maven/#enterprise-edition-1). You can [get a trial license](https://camunda.com/download/enterprise/) here.
 
 ```
 mvn clean install
 ```
-
-You can [get a trial license](https://camunda.com/download/enterprise/) here.
 
 2. Edit the config for your Camunda and Elastic installation in the [manifest.yml](manifest.yml), e.g.: 
 
