@@ -1,9 +1,7 @@
 ---
 applications:
   - name: camunda-on-pcf-optimize
-    path: target/camunda-on-pcf-optimize-as-a-service.jar
-#    services:
-#      - camunda-elastic
+#    path: target/camunda-on-pcf-optimize-as-a-service.jar
     env:
       HTTP_PORT: 8080
       HTTPS_PORT: 8081
