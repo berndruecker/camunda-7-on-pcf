@@ -53,8 +53,15 @@ cf login
 ```
 *   Build and push the application. Check the [PCF manifest file](https://github.com/berndruecker/camunda-on-pcf/blob/master/spring-boot-embedded-engine-sample/manifest.yml) to make sure that it references the right database service.
 ```
-mvn clean install && cf push -f target/*.jar
+mvn clean install && cf push -p target/*.jar
 ```
+
+*Hint: In on-prem installations of PCF the java buildpack might not yet be available, then you need to specify that in your command:*
+
+```
+cf push -p target/*.jar https://github.com/cloudfoundry/java-buildpack.git
+```
+
 *   Now you can access your application by either triggering your REST endpoint or open up the Camunda web applications. PCF as default creates an URL that matches exactly your application name, in my example that is [https://camunda-pcf-spring-boot-embedded-engine-sample.cfapps.io](https://camunda-pcf-spring-boot-embedded-engine-sample.cfapps.io/):
 
 ![](../docs/embedded-spring-boot-cockpit.png)
@@ -70,6 +77,22 @@ You can also use the **[Camunda REST API](https://docs.camunda.org/manual/latest
 ```
 curl http://camunda-pcf-spring-boot-embedded-engine-sample.cfapps.io/rest/history/process-instance?completed=true
 ```
+
+# Possible extensions
+
+## Using an external database
+
+You might not leverage a PCF service to provide the database. In this case you have to 
+
+* Configure your database properties [in the cloud profile](https://docs.spring.io/spring-boot/docs/current/reference/html/howto-properties-and-configuration.html#howto-change-configuration-depending-on-the-environment), e.g. by copying `spring.datasource.url` and related datasource parameters in a file `application-cloud.properties`, e.g.
+
+```
+spring.datasource.url= # JDBC URL of the database.
+spring.datasource.username= # Login username of the database.
+spring.datasource.password= # Login password of the database.
+```
+
+* Make sure you disable the 'DataSourceCloudConfiguration', the easiest way is to delete the `DataSourceCloudConfiguration.java` file completly.
 
 # Further reading
 

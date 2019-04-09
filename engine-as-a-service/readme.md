@@ -37,7 +37,13 @@ cf login
 ```
 * Build and push the application. Check the [PCF manifest file](https://github.com/berndruecker/camunda-on-pcf/blob/master/spring-boot-embedded-engine-sample/manifest.yml) to make sure that it references the right database service.
 ```
-mvn clean install && cf push -f target/*.jar
+mvn clean install && cf push -p target/*.jar
+```
+
+*Hint: In on-prem installations of PCF the java buildpack might not yet be available, then you need to specify that in your command:*
+
+```
+cf push -p target/*.jar https://github.com/cloudfoundry/java-buildpack.git
 ```
 
 # Use it
