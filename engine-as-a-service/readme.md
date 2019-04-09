@@ -58,6 +58,29 @@ No you can use the **[Camunda REST API](https://docs.camunda.org/manual/latest/r
 curl http://camunda-on-pcf-engine-as-a-service.cfapps.io/rest/history/process-definition
 ```
 
+# Run example applications
+
+Now you can run one of the sample applications of this tutorial:
+
+* [Node.JS Sample](../nodejs-sample/)
+
+
+# Possible extensions
+
+## Using an external database
+
+You might not leverage a PCF service to provide the database. In this case you have to 
+
+* Configure your database properties [in the cloud profile](https://docs.spring.io/spring-boot/docs/current/reference/html/howto-properties-and-configuration.html#howto-change-configuration-depending-on-the-environment), e.g. by copying `spring.datasource.url` and related datasource parameters in a file `application-cloud.properties`, e.g.
+
+```
+spring.datasource.url= # JDBC URL of the database.
+spring.datasource.username= # Login username of the database.
+spring.datasource.password= # Login password of the database.
+```
+
+* Make sure you disable the 'DataSourceCloudConfiguration', the easiest way is to delete the `DataSourceCloudConfiguration.java` file completly.
+
 
 ## Camunda as User-Provided Service Instances
 
@@ -70,14 +93,3 @@ cf cups ...
  This allows that deployments, which use Camunda, can simply read this data from the service description as described e.g. in [Service Bindings in Node.JS](https://docs.run.pivotal.io/buildpacks/node/node-service-bindings.html).
 
 
-## Run example applications
-
-Now you can run one of the sample applications of this tutorial:
-
-* [Node.JS Sample](../nodejs-sample/)
-
-# Screencast
-
-This video walks you through the whole procedure:
-
-ADD YOUTUBE VIDEO HERE
