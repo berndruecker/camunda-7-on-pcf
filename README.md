@@ -1,4 +1,6 @@
-# How to run Camunda on Pivotal Cloud Foundry (PCF)
+[![Camunda Platform 7](https://img.shields.io/badge/Compatible%20with-Camunda%20Platform%207-26d07c)](https://img.shields.io/badge/Compatible%20with-Camunda%20Platform%207-26d07c)
+
+# How to run Camunda 7 on Pivotal Cloud Foundry (PCF)
 
 In the examples in this repo I show how to run 
 
